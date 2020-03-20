@@ -2,6 +2,12 @@ const express=require('express');
 const connectDB=require('./config/db');
 const app=express();
 connectDB();
+
+//inicializar middleware
+app.use(express.json({
+    extended: false
+}));
+
 app.get('/', (req, res)=>res.send('API Corriendo'));
 
 //Se definen todas las rutas
